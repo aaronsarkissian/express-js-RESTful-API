@@ -11,9 +11,7 @@ const queryValidator = require('./api/middleware/query-validator');
 const usersRoutes = require('./api/routes/users');
 const codesRoutes = require('./api/routes/codes');
 
-mongoose.connect('mongodb://127.0.0.1:27017/mern-api-sololearn', { useNewUrlParser: true }, (err) => {
-  if (err) throw err;
-});
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true });
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
